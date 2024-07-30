@@ -5,6 +5,7 @@ from pages.sale_page import SalePage
 from pages.customer_login import CustomerLogin
 from pages.product_page import ProductPage
 from pages.home_page import HomePage
+from pages.whats_new_page import WhatsNew
 
 
 @pytest.fixture()
@@ -30,3 +31,6 @@ def product_page(driver):
 def home_page(driver):
     return HomePage(driver)
 
+@pytest.fixture()
+def whats_new_page(driver):
+    return WhatsNew(driver)

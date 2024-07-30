@@ -1,9 +1,12 @@
 from pages.base_page import BasePage
 from pages.locators import drop_menu_locators as loc
 from selenium.webdriver.common.action_chains import ActionChains
+import allure
 
 class HomePage(BasePage):
     page_url = '/'
+
+    @allure.step('Open the home page')
     def drop_menu(self,text):
         women = self.find(loc.women)
         tops = self.find(loc.tops)
