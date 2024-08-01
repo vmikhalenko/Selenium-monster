@@ -1,3 +1,3 @@
 # Selenium-monster
 
-Some UI tests for https://magento.softwaretestingboard.com/
+Some UI tests using *Selenium* for https://magento.softwaretestingboard.com/
