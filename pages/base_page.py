@@ -12,7 +12,7 @@ class BasePage:
         if self.page_url:
             self.driver.get(f'{self.base_url}{self.page_url}')
         else:
-            raise NotImplementedError('Page can not be opened for this page class')
+            raise NotImplementedError('Page can not be opened by URL for this page')
 
     @allure.step('Find element by locator')
     def find(self,locator:tuple):
