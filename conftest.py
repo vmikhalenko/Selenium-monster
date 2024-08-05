@@ -8,15 +8,16 @@ from pages.product_page import ProductPage
 from pages.home_page import HomePage
 from pages.whats_new_page import WhatsNew
 
-
 @pytest.fixture()
 def driver():
     options = Options()
     options.add_argument('--headless')
     chrome_driver = webdriver.Chrome(options=options)
     chrome_driver.maximize_window()
+    chrome_driver.implicitly_wait(5)
     sleep(3)
-    return chrome_driver
+    yield chrome_driver
+    chrome_driver.get_screenshot_as_png()
 
 @pytest.fixture()
 def sale_page(driver):

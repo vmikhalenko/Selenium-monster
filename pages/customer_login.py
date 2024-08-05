@@ -23,4 +23,5 @@ class CustomerLogin(BasePage):
             (loc.error_alert_locator)
         )
         )
+        self.driver.implicitly_wait(5)
         assert error_alert_location.text == text
