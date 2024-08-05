@@ -7,6 +7,7 @@ from pages.customer_login import CustomerLogin
 from pages.product_page import ProductPage
 from pages.home_page import HomePage
 from pages.whats_new_page import WhatsNew
+import allure
 
 @pytest.fixture()
 def driver():
@@ -17,7 +18,7 @@ def driver():
     chrome_driver.implicitly_wait(5)
     sleep(3)
     yield chrome_driver
-    chrome_driver.get_screenshot_as_png()
+    allure.attach(chrome_driver.get_screenshot_as_png())
 
 @pytest.fixture()
 def sale_page(driver):
