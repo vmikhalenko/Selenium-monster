@@ -1,5 +1,6 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from time import sleep
 from pages.sale_page import SalePage
 from pages.customer_login import CustomerLogin
@@ -10,7 +11,9 @@ from pages.whats_new_page import WhatsNew
 
 @pytest.fixture()
 def driver():
-    chrome_driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--headless')
+    chrome_driver = webdriver.Chrome(options=options)
     chrome_driver.maximize_window()
     sleep(3)
     return chrome_driver
