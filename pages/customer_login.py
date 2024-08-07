@@ -19,9 +19,8 @@ class CustomerLogin(BasePage):
 
     @allure.step('Check message')
     def check_error_alert_text(self,text):
-        error_alert_location = (WebDriverWait(self.driver, 5).until(EC.presence_of_element_located
+        WebDriverWait(self.driver, 5).until(EC.presence_of_element_located
             (loc.error_alert_locator)
         )
-        )
-        self.driver.implicitly_wait(5)
-        assert error_alert_location.text == text
+        error_alert = self.driver.find_element(*loc.error_alert_locator)
+        assert error_alert.text == text
